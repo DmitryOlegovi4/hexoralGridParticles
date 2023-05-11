@@ -1,0 +1,89 @@
+body{
+    margin: 0;
+    overflow: hidden;
+}
+
+canvas{
+    background: rgb(15,15,15);
+}
+.btns{
+    position: absolute;
+    opacity: .5;
+}
+.active{
+    box-shadow: 0 0 5px 3px white;
+}
+
+button{
+    padding: 10px;
+    margin: 5px;
+    border: 0;
+    cursor: pointer;
+    color: rgb(15,15,15);
+    border-radius: 5px;
+    overflow: hidden;
+    transition: all 0.4s cubic-bezier(.86, .01, .15, .99);
+}
+
+button::before {
+    content: "";
+    position: absolute;
+    z-index: -1;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    border-radius: 5px;
+}
+button:hover {
+    color: #4e75ff;
+    box-shadow: 0 5px 35px rgba(0, 0, 0, 0.6);
+    transform: translateY(5px);
+}
+.triangle {
+    background-color: #f9ff00;
+    transform: translateY(0);
+}
+.triangle::before {
+    background: linear-gradient(to right, #f9ff00, #00ff00);
+    transform: scaleX(0);
+    transform-origin: 100% 0;
+    transition: 0.4s cubic-bezier(.86, .01, .15, .99);
+}
+.triangle:hover::before {
+    transform: scale(1);
+}
+
+.hexagon {
+    background: #efcfff;
+    transform: perspective(1px) translateZ(0);
+    transition: 0.4s cubic-bezier(.86, .01, .15, .99);
+}
+.hexagon:before {
+    background: linear-gradient(to right, #efcfff, #c49bf8, #efcfff);
+    transform: scaleX(0);
+    opacity: 0;
+    transform-origin: 50% 50%;
+    transition: 0.4s cubic-bezier(.86, .01, .15, .99);
+}
+.hexagon:hover:before {
+    transform: scale(1);
+    opacity: 1;
+}
+
+.random {
+    background: #5FFF3FFF;
+    transform: perspective(1px) translateZ(0);
+    position: relative;
+    transition-timing-function: cubic-bezier(.86, .01, .15, .99);
+    transition-duration: .4s;
+}
+.random:before {
+    background: linear-gradient(to bottom, #ABFF99FF, #5FFF3FFF);
+    transform: scaleY(0);
+    transform-origin: 0 0;
+    transition: 0.4s cubic-bezier(.86, .01, .15, .99);
+}
+.random:hover:before {
+    transform: scaleY(1);
+}
